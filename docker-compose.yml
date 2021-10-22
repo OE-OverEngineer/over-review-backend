@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile.arm
       context: .
       target: dev
+    ports:
+      - 4000:4000
     environment:
       - PORT=4000
       - DATABASE_HOST=postgres

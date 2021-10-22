@@ -1,6 +1,8 @@
 package user
 
 import (
+	"errors"
+
 	"github.com/OE-OverEngineer/over-review-backend/data/user"
 )
 
@@ -34,15 +36,21 @@ func (s userService) GetAllUser() ([]UserResponse, error) {
 }
 
 func (s userService) GetUser(id int) (*UserResponse, error) {
+	if id <= 0 {
+		return nil, errors.New("id must be greater than 0")
+	}
 	user, err := s.userRepository.GetUser(id)
 	if err != nil {
 		return nil, err
 	}
-	userResponse := UserResponse{
+	if user == nil {
+		return nil, nil
+	}
+	userResponse := &UserResponse{
 		ID:        user.ID,
 		FirstName: user.FirstName,
 		LastName:  user.LastName,
 		Email:     user.LastName,
 	}
-	return &userResponse, nil
+	return userResponse, nil
 }

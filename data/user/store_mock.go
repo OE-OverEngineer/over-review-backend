@@ -1,8 +1,6 @@
 package user
 
 import (
-	"errors"
-
 	"github.com/OE-OverEngineer/over-review-backend/utils/hash"
 )
 
@@ -32,10 +30,6 @@ func (r *userRepositoryDB) GetAll() ([]User, error) {
 }
 
 func (r *userRepositoryDB) GetUser(id int) (*User, error) {
-
-	if id <= 0 {
-		return nil, errors.New("id must be greater than 0")
-	}
 
 	for _, v := range r.users {
 		if v.ID == id {
