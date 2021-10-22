@@ -13,5 +13,6 @@ services:
       - DATABASE_PASS=123456
       - DATABASE_NAME=movie
       - SECRET_KEY=local
+      - Env=development
     volumes:
       - .:/opt/app/api
