@@ -24,7 +24,7 @@ func (s userService) GetAllUser() ([]UserResponse, error) {
 	userResponses := []UserResponse{}
 	for _, user := range users {
 		userResponse := UserResponse{
-			ID:        user.ID,
+			ID:        user.Model.ID,
 			FirstName: user.FirstName,
 			LastName:  user.LastName,
 			Email:     user.Email,
@@ -47,7 +47,7 @@ func (s userService) GetUser(id int) (*UserResponse, error) {
 		return nil, nil
 	}
 	userResponse := &UserResponse{
-		ID:        user.ID,
+		ID:        user.Model.ID,
 		FirstName: user.FirstName,
 		LastName:  user.LastName,
 		Email:     user.LastName,
