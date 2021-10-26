@@ -24,7 +24,7 @@ func NewUserHandler(userSrv user.UserService) UserHandler {
 }
 
 func Routes(route *gin.Engine, h UserHandler) {
-	r := route.Group("/user")
+	r := route.Group("/users")
 	{
 		r.GET("", h.getAllUser)
 		r.GET("/:id", h.getUser)

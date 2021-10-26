@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 services:
   app:
     build:
@@ -10,11 +10,20 @@ services:
     environment:
       - PORT=4000
       - DATABASE_HOST=postgres
-      - DATABASE_USER=thekogo
+      - DATABASE_USER=over
       - DATABASE_PORT=5432
-      - DATABASE_PASS=123456
+      - DATABASE_PASS=over1234
       - DATABASE_NAME=movie
       - SECRET_KEY=local
       - Env=development
     volumes:
       - .:/opt/app/api
+
+  postgres:
+    image: postgres:13.4
+    environment:
+      - POSTGRES_USER=over
+      - POSTGRES_PASSWORD=over1234
+      - POSTGRES_DB=movie
+    volumns:
+      - ./data:/var/lib/postgresql/data

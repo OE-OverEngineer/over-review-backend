@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/OE-OverEngineer/over-review-backend/application/rest"
 	"github.com/OE-OverEngineer/over-review-backend/configuration"
-	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
@@ -13,5 +12,5 @@ func main() {
 		panic(err)
 	}
 
-	rest.Run(configuration.Port)
+	rest.Run(configuration)
 }
