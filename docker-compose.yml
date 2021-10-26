@@ -18,6 +18,8 @@ services:
       - Env=development
     volumes:
       - .:/opt/app/api
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres:13.4
@@ -25,5 +27,5 @@ services:
       - POSTGRES_USER=over
       - POSTGRES_PASSWORD=over1234
       - POSTGRES_DB=movie
-    volumns:
+    volumes:
       - ./data:/var/lib/postgresql/data
