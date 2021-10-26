@@ -28,4 +28,4 @@ services:
       - POSTGRES_PASSWORD=over1234
       - POSTGRES_DB=movie
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib/postgresql/data
