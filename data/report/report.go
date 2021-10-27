@@ -5,7 +5,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type User struct {
+type Report struct {
 	// ID        int    `gorm:"column:id;primary_key"`
 	gorm.Model
 	User    user.User

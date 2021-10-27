@@ -29,7 +29,7 @@ func NewUserRepositoryMock() UserRepository {
 			BirthDate:   time.Time{},
 			Email:       "thekogo@gmail.com",
 			Password:    hashPass,
-			Gender:      "",
+			// Gender:      "Male",
 		},
 		{
 			Model: gorm.Model{
@@ -42,20 +42,20 @@ func NewUserRepositoryMock() UserRepository {
 			BirthDate:   time.Time{},
 			Email:       "nawakarn@gmail.com",
 			Password:    hashPass,
-			Gender:      "",
+			// Gender:      "Female",
 		},
 		{
 			Model: gorm.Model{
 				ID: 3,
 			},
-			FirstName:   "Kittapat",
-			LastName:    "Dechkul",
+			FirstName:   "Choolerk",
+			LastName:    "Taebanpakul",
 			DisplayName: "",
 			Avatar:      "",
 			BirthDate:   time.Time{},
-			Email:       "kittapat@gmail.com",
+			Email:       "guide@gmail.com",
 			Password:    hashPass,
-			Gender:      "",
+			// Gender:      "Male",
 		},
 		{
 			Model: gorm.Model{
@@ -68,7 +68,7 @@ func NewUserRepositoryMock() UserRepository {
 			BirthDate:   time.Time{},
 			Email:       "kittapat@gmail.com",
 			Password:    hashPass,
-			Gender:      "",
+			// Gender:      "Male",
 		},
 	}
 	return &userRepositoryDB{
