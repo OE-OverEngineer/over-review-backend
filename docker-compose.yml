@@ -2,9 +2,9 @@ version: "3.9"
 services:
   app:
     build:
-      dockerfile: Dockerfile.arm
+      dockerfile: Dockerfile
       context: .
-      target: dev
+      target: production
     ports:
       - 4000:4000
     environment:
@@ -16,6 +16,7 @@ services:
       - DATABASE_NAME=movie
       - SECRET_KEY=local
       - Env=development
+      - GIN_MODE=debug
     volumes:
       - .:/opt/app/api
     depends_on:
