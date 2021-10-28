@@ -4,7 +4,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: .
-      target: production
+      target: dev
     ports:
       - 4000:4000
     environment:
@@ -25,6 +25,8 @@ services:
 
   postgres:
     image: postgres:13.4
+    ports:
+      - 5432:5432
     environment:
       - POSTGRES_USER=over
       - POSTGRES_PASSWORD=over1234
