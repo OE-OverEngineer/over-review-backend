@@ -9,28 +9,24 @@ type Hash struct {
 }
 
 type Hasher interface {
-	HashPassword(string) (string, error)
-	CheckPasswordHash(string, string) bool
+	HashPassword(password string) (string, error)
+	CheckPasswordHash(password string, hash string) bool
 }
 
 func NewHasher(secretKey string) Hasher {
-	return Hash{
+	return &Hash{
 		secretKey: secretKey,
 	}
 }
 
-func (h Hash) TTT() {
-	print("TETS")
-}
-
-func (h Hash) HashPassword(password string) (string, error) {
-	salt := "test"
+func (h *Hash) HashPassword(password string) (string, error) {
+	salt := h.secretKey
 	bytes, err := bcrypt.GenerateFromPassword([]byte(salt+password), 14)
 	return string(bytes), err
 }
 
-func (h Hash) CheckPasswordHash(password, hash string) bool {
-	salt := "test"
+func (h *Hash) CheckPasswordHash(password string, hash string) bool {
+	salt := h.secretKey
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(salt+password))
 	return err == nil
 }
